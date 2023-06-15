@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bukti Pemesanan Tiket</title>
+    <style>
+        body {
+            background-color: #dfa5a5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            color: #f8f6f6;
+            text-align: center;
+        }
+
+        .bukti-container {
+            background-color: #ecd3d3;
+            padding: 60px;
+            border-radius: 5px;
+        }
+
+        .bukti-container p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bukti Pemesanan Tiket</h1>
+
+    <div class="bukti-container">
+        <p><strong>Nama:</strong> <span id="buktiNama"></span></p>
+        <p><strong>Jumlah Pengunjung:</strong> <span id="buktiJumlahPengunjung"></span></p>
+        <p><strong>Tujuan:</strong> <span id="buktiTujuan"></span></p>
+        <p><strong>Tanggal:</strong> <span id="buktiTanggal"></span></p>
+        <p><strong>Nomor Kapal:</strong> <span id="buktiNomorKapal"></span></p>
+        <p><strong>Waktu Keberangkatan:</strong> <span id="buktiWaktuKeberangkatan"></span></p>
+        <p><strong>Jumlah Tiket:</strong> <span id="buktiJumlahTiket"></span></p>
+        <p><strong>Harga Tiket:</strong> <span id="buktiHargaTiket"></span></p>
+        <p><strong>Total Bayar:</strong> <span id="buktiTotalBayar"></span></p>
+    </div>
+
+    <script>
+        window.onload = function() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('nama');
+            const jumlahPengunjung = urlParams.get('jumlahPengunjung');
+            const tujuan = urlParams.get('tujuan');
+            const tanggal = urlParams.get('tanggal');
+            const nomorKapal = urlParams.get('nomorKapal');
+            const waktuKeberangkatan = urlParams.get('waktuKeberangkatan');
+            const jumlahTiket = urlParams.get('jumlahTiket');
+            const hargaTiket = urlParams.get('hargaTiket');
+            const totalBayar = urlParams.get('totalBayar');
+        
+            document.getElementById("buktiNama").textContent =            
+            document.getElementById("buktiNama").textContent = nama;
+            document.getElementById("buktiJumlahPengunjung").textContent = jumlahPengunjung;
+            document.getElementById("buktiTujuan").textContent = tujuan;
+            document.getElementById("buktiTanggal").textContent = tanggal;
+            document.getElementById("buktiNomorKapal").textContent = nomorKapal;
+            document.getElementById("buktiWaktuKeberangkatan").textContent = waktuKeberangkatan;
+            document.getElementById("buktiJumlahTiket").textContent = jumlahTiket;
+            document.getElementById("buktiHargaTiket").textContent = hargaTiket;
+            document.getElementById("buktiTotalBayar").textContent = totalBayar;
+        };
+    </script>
+</head>
+</html>
+
+        
+

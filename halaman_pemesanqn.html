@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Pemesanan Tiket</title>
+    <style>
+        body {
+            background-color: #dfa5a5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            color: #f8f6f6;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 20px;
+            background-color: #ecd3d3;
+            padding: 60px;
+            border-radius: 5px;
+        }
+
+        label {
+            color: #080808;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 7px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e74a4a;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #totalBayar {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function hitungTotal() {
+            var hargaTiket = parseInt(document.getElementById("hargaTiket").value);
+            var jumlahTiket = parseInt(document.getElementById("jumlahTiket").value);
+            var totalBayar = hargaTiket * jumlahTiket;
+            document.getElementById("totalBayar").value = totalBayar;
+        }
+
+
+        function pesan() {
+            var nama = document.getElementById("nama").value;
+            var jumlahPengunjung = document.getElementById("jumlahPengunjung").value;
+            var tujuan = document.getElementById("tujuan").value;
+            var tanggal = document.getElementById("tanggal").value;
+            var nomorKapal = document.getElementById("nomorKapal").value;
+            var waktuKeberangkatan = document.getElementById("waktuKeberangkatan").value;
+            var jumlahTiket = document.getElementById("jumlahTiket").value;
+            var hargaTiket = document.getElementById("hargaTiket").value;
+            var totalBayar = document.getElementById("totalBayar").value;
+
+            
+            var redirectUrl = "bukti_pemesanan.html" +
+                "?nama=" + encodeURIComponent(nama) +
+                "&jumlahPengunjung=" + encodeURIComponent(jumlahPengunjung) +
+                "&tujuan=" + encodeURIComponent(tujuan) +
+                "&tanggal=" + encodeURIComponent(tanggal) +
+                "&nomorKapal=" + encodeURIComponent(nomorKapal) +
+                "&waktuKeberangkatan=" + encodeURIComponent(waktuKeberangkatan) +
+                "&jumlahTiket=" + encodeURIComponent(jumlahTiket) +
+                "&hargaTiket=" + encodeURIComponent(hargaTiket) +
+                "&totalBayar=" + encodeURIComponent(totalBayar);
+
+            window.location.href = redirectUrl;
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Pemesanan Tiket</h1>
+
+    <form>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" required>
+
+        <label for="jumlahPengunjung">Jumlah Pengunjung:</label>
+        <input type="number" id="jumlahPengunjung" required>
+
+        <label for="tujuan">Tujuan:</label>
+        <select id="tujuan" required>
+            <option value="pulangkembang">Pulang Kembang</option>
+            <option value="pulaubakut">Pulau Bakut</option>
+        </select>
+
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" required>
+
+		<label for="nomorKapal">Nomor Kapal:</label>
+		<input type="number" id="nomorKapal" required>
+	
+		<label for="waktuKeberangkatan">Waktu Keberangkatan:</label>
+		<input type="time" id="waktuKeberangkatan" required>
+	
+		<label for="jumlahTiket">Jumlah Tiket:</label>
+		<input type="number" id="jumlahTiket" required>
+	
+		<label for="hargaTiket">Harga Tiket:</label>
+		<input type="text" id="hargaTiket" required>
+	
+		<label for="totalBayar">Total Bayar:</label>
+		<input type="text" id="totalBayar" readonly>
+	
+		<button type="button" onclick="hitungTotal()">Hitung</button>
+		<button type="button" onclick="pesan()">Pesan</button>
+	</form>
+	
