@@ -3,7 +3,7 @@
 
 ## Deskripsi Pekerjaan Fira Rahmawati 2210131220013
 
-Pada tugas kelompok mata kuliah Pemrograman Web 1, saya bertanggung jawab dalam pembuatan poster aplikasi web, halaman pemesanan, dan bukti halaman pesan. Berikut adalah deskripsi pekerjaan yang saya lakukan:
+Pada tugas kelompok mata kuliah Pemrograman Web 1, saya bertanggung jawab dalam pembuatan poster aplikasi web, halaman pemesanan, bukti halaman pesan, dan halaman tentang. Berikut adalah deskripsi pekerjaan yang saya lakukan:
 
 ### 1. Pembuatan Poster Aplikasi Web
 
