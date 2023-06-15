@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="loginRegis.css" />
+    <title>Login & Registrasi</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <h2 class="title">Form Login</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="email" id="email_sigin" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="psw_signin" placeholder="Password" />
+            </div>
+            <input type="submit" value="Login" class="btn solid" id="button_signin" />
+            <p class="social-text">Atau masuk dengan media sosial</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+            </div>
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Form Registrasi</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" id="name_signout" />
+            </div>
+            <div class="input-field">
+                <i class="fas fa-phone"></i>
+                <input type="text" placeholder="no. handphone" id="no.hp" />
+              </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" id="email_signout" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" id="psw_signout" />
+            </div>
+            <input type="submit" class="btn" value="Sign up" id="button_signup" />
+            <p class="social-text">Atau daftar dengan sosial media</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Belum punya akun ?</h3>
+            <p>
+              Silahkan melakukan registrasi jika belum memiliki akun
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Daftar
+            </button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Sudah punya akun ?</h3>
+            <p>
+              Silahkan login jika sudah memiliki akun sebelumnya
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+
+        import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 
+        "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+        import {getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+    apiKey: "AIzaSyArRYV8dxfPud3FCcWTbdzpVP8oihM4bTo",
+    authDomain: "login-43316.firebaseapp.com",
+    databaseURL: "https://login-43316-default-rtdb.firebaseio.com",
+    projectId: "login-43316",
+    storageBucket: "login-43316.appspot.com",
+    messagingSenderId: "857609158870",
+    appId: "1:857609158870:web:9549dda62786570a0cc977"
+  };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+
+
+        const buttonSignup = document.getElementById("button_signup");
+        const buttonSigin = document.getElementById("button_signin");
+
+
+        buttonSignup.addEventListener("click", (e) => {
+            let name = document.getElementById("name_signout").value;
+            let nohp = document.getElementById("no.hp").value;
+            let emailSignup = document.getElementById("email_signout").value;
+            let passwordSignup = document.getElementById("psw_signout").value;
+
+            createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                })
+
+                .then(()=> {
+                    alert("Data Telah Ditambahkan")
+                }).catch((error) => {
+                    alert(error)
+                })
+
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+        })
+
+        //login
+        const buttonSignin = document.getElementById("button_signin");
+        buttonSignin.addEventListener("click", (e) => {
+          e.preventDefault();
+          
+          const emailSignin = document.getElementById("email_sigin").value;
+          const passwordSignin = document.getElementById("psw_signin").value;
+          
+          signInWithEmailAndPassword(auth, emailSignin, passwordSignin)
+          .then((userCredential) => {
+            // Login berhasil
+            const user = userCredential.user;
+            window.location = "eticket.html"
+  
+            // Lakukan tindakan yang sesuai, seperti mengarahkan pengguna ke halaman berikutnya
+        })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+});
+
+      </script>
+
+    <script src="loginRegis.js"></script>
+    
+</body>
+</html>
