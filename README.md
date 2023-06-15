@@ -16,3 +16,7 @@ Saya bertugas dalam pengembangan halaman pemesanan untuk aplikasi web yang sedan
 ### 3. Halaman Bukti Pesan
 
 Bagian lain dari pekerjaan saya adalah mengembangkan halaman bukti pesan. Setelah pengguna melakukan pemesanan melalui halaman sebelumnya, mereka akan diarahkan ke halaman ini untuk melihat ringkasan pesanan mereka dan mendapatkan bukti transaksi. 
+
+### 4. Halaman Tentang 
+
+Yang terakhir saya juga membuat halaman tentang. Yang dimana pada halaman ini berisikan informasi tentang wisata susur sungai di Banjarmasin 
